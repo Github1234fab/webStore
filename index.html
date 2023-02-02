@@ -5,15 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/34232c07fe.js" crossorigin="anonymous"></script>
     <title>WebStore</title>
   </head>
+
   <body>
     <div id="app">
-  <router-link to="/">Go to Home</router-link>
-    <router-link to="/user-setting">User setting</router-link>
-
-        <router-view></router-view>
+      <router-link to="/"><i class="fa-sharp fa-solid fa-house"></i></router-link>
+      <router-link to="/user-setting"><i class="fa-sharp fa-solid fa-user"></i></router-link>
+      <router-view></router-view>
     </div>
+
+    <script type="text/x-template" id="home">
+              <div class="home-container">
+              <h1>Articles</h1>
+      <div class="card-cart-container">
+          <div class="card-container">
+              <div v-for = "product in products" class="card">
+                  <div  class="card-img">
+                      <img  v-bind:src="product.img" alt="Montre">
+                      </div>
+                      <div class="card-text">
+                  <h3> {{ product.description }} </h3>
+                  <span>{{ product.price }} </span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </script>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://unpkg.com/vue-router@4"></script>
     <script src="vue.js"></script>
